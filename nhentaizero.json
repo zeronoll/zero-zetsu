@@ -1,0 +1,21 @@
+{
+  "name": "nhentai",
+  "version": "1.0.0",
+  "type": "imageModule",
+  "site": "https://nhentai.net/",
+  "imageUrl": "https://t.nhentai.net/galleries/{{gallery_id}}/{{page}}.jpg",
+  "searchUrl": "https://nhentai.net/api/galleries/search?query={{query}}&page={{page}}",
+  "searchResults": {
+    "title": "title.english",
+    "url": "https://nhentai.net/g/{{id}}/",
+    "thumbnail": "https://t.nhentai.net/galleries/{{media_id}}/cover.jpg"
+  },
+  "gallery": {
+    "pages": "images.pages",
+    "imageData": {
+      "id": "id",
+      "gallery_id": "media_id",
+      "page": "image"
+    }
+  }
+}
