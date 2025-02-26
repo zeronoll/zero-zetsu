@@ -7,8 +7,10 @@
     "moduleID": "NHENTAI12345",
     "moduleImage": "https://nhentai.net/favicon.ico",
     "moduleVersion": 1.0,
+    "changelog": "Initial release for nhentai.net",
     "moduleLenguage": "ENG",
     "moduleType": "Image",
+    "nsfw": true,
     "baseURL": "https://nhentai.net",
     "moduleDeveloperSite": "",
     "UpdateSite": "",
@@ -32,11 +34,17 @@
         "commands": [],
         "extraInfo": []
       },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": "function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data; }"
+      },
       "output": [
         {
           "cellDesing": "normal1",
           "orientation": "vertical",
           "defaultLayout": "wide",
+          "paging": "none",
           "section": {"sectionName": "Latest Doujins", "separator": false},
           "data": [
             {
@@ -57,15 +65,22 @@
         "method": "get",
         "headers": []
       },
+      "separator": "+",
       "extra": {
         "commands": [],
         "extraInfo": []
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": ""
       },
       "output": [
         {
           "cellDesing": "normal1",
           "orientation": "vertical",
           "defaultLayout": "wide",
+          "paging": "none",
           "section": {"sectionName": "Search Results", "separator": false},
           "data": [
             {
@@ -90,14 +105,24 @@
         "commands": [],
         "extraInfo": []
       },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": ""
+      },
       "output": {
         "image": {"url": "div#cover img | attr:data-src", "method": "get"},
         "title": "div#info h1 | text",
         "description": "div#info h2 | text",
-        "genres": "div#info section#tags a.tag | text",
+        "genres": ["div#info section#tags a.tag | text"],
+        "field1": "",
+        "field2": "",
+        "field3": "",
+        "field4": "",
         "chapters": [
           {
             "chapName": "Read Doujin",
+            "openInWebView": false,
             "link": {"url": "{mangaId}", "method": "get"}
           }
         ]
@@ -115,14 +140,23 @@
         "commands": [],
         "extraInfo": []
       },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": ""
+      },
       "output": {
         "images": [
           {
             "url": "div.container img | attr:data-src",
             "method": "get"
           }
-        ]
+        ],
+        "text": {"text": ""}
       }
     }
-  ]
+  ],
+  "moduleResolvers": [],
+  "responseCodeFunctions": [],
+  "helperFunctions": []
 }
