@@ -1,0 +1,106 @@
+{
+  "moduleInfo": {
+    "moduleName": "nhentai",
+    "moduleInitials": "NH",
+    "moduleDesc": "Module for browsing and searching doujinshi on nhentai.net",
+    "developer": "YourName",
+    "moduleID": "nhentaiModule",
+    "moduleImage": "https://nhentai.net/favicon.ico",
+    "moduleVersion": 1.0,
+    "moduleLanguage": "ENG",
+    "moduleType": "Image",
+    "baseURL": "https://nhentai.net",
+    "moduleDeveloperSite": "",
+    "UpdateSite": "",
+    "preferredServer": "",
+    "preferredDownloadServer": "",
+    "blackListed": []
+  },
+  "global": {
+    "variables": [],
+    "cookies": [],
+    "headers": []
+  },
+  "mainPage": [
+    {
+      "request": {
+        "url": "https://nhentai.net",
+        "method": "get",
+        "headers": [],
+        "httpBody": null
+      },
+      "extra": {
+        "commands": [],
+        "extraInfo": []
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": "var output = []; document.querySelectorAll('.gallery').forEach(element => { var title = element.querySelector('.caption')?.innerText || 'No title'; var link = element.querySelector('a')?.href || ''; var img = element.querySelector('img')?.src || ''; output.push({ image: { url: img, method: 'get', headers: [], httpBody: null }, title: title, link: { url: link, method: 'get', headers: [], httpBody: null }, openInWebView: false, isChapter: false }); }); var finalData = { output: output }; document.getElementById('ketsu-final-data').textContent = JSON.stringify(finalData);"
+      },
+      "output": []
+    }
+  ],
+  "search": [
+    {
+      "request": {
+        "url": "https://nhentai.net/search/?q={query}",
+        "method": "get",
+        "headers": [],
+        "httpBody": null
+      },
+      "separator": "",
+      "extra": {
+        "commands": [],
+        "extraInfo": []
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": "var output = []; document.querySelectorAll('.gallery').forEach(element => { var title = element.querySelector('.caption')?.innerText || 'No title'; var link = element.querySelector('a')?.href || ''; var img = element.querySelector('img')?.src || ''; output.push({ image: { url: img, method: 'get', headers: [], httpBody: null }, title: title, link: { url: link, method: 'get', headers: [], httpBody: null }, openInWebView: false, isChapter: false }); }); var finalData = { output: output }; document.getElementById('ketsu-final-data').textContent = JSON.stringify(finalData);"
+      },
+      "output": []
+    }
+  ],
+  "info": [
+    {
+      "request": {
+        "url": "{link}",
+        "method": "get",
+        "headers": [],
+        "httpBody": null
+      },
+      "extra": {
+        "commands": [],
+        "extraInfo": []
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": "var title = document.querySelector('h1.title')?.innerText || 'No title'; var image = document.querySelector('.cover img')?.src || ''; var details = document.querySelector('.tag-container')?.innerText || 'No details'; var chapters = []; document.querySelectorAll('.thumb-container img').forEach((img, index) => { chapters.push({ chapName: 'Page ' + (index + 1), link: { url: img.src.replace('t.nhentai.net', 'i.nhentai.net').replace('t.jpg', '.jpg'), method: 'get', headers: [], httpBody: null }, openInWebView: false }); }); var finalData = { title: title, image: { url: image, method: 'get', headers: [], httpBody: null }, description: details, chapters: chapters }; document.getElementById('ketsu-final-data').textContent = JSON.stringify(finalData);"
+      },
+      "output": {}
+    }
+  ],
+  "chapters": [
+    {
+      "request": {
+        "url": "{link}",
+        "method": "get",
+        "headers": [],
+        "httpBody": null
+      },
+      "extra": {
+        "commands": [],
+        "extraInfo": []
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": "var images = []; document.querySelectorAll('.thumb-container img').forEach(img => { images.push({ url: img.src.replace('t.nhentai.net', 'i.nhentai.net').replace('t.jpg', '.jpg'), method: 'get', headers: [], httpBody: null }); }); var finalData = { images: images }; document.getElementById('ketsu-final-data').textContent = JSON.stringify(finalData);"
+      },
+      "output": {}
+    }
+  ],
+  "moduleResolvers": []
+}
