@@ -13,7 +13,7 @@
     "nsfw": true,
     "baseURL": "https://nhentai.net/",
     "moduleDeveloperSite": "https://mprotmod.github.io/Modules-KETSU/index.html",
-    "updateSite": "https://raw.githubusercontent.com/user123/NHentaiModule/main/module.json",
+    "updateSite": "https://raw.githubusercontent.com/zeronoll/zero-zetsu/refs/heads/main/zero_nhentai_2.json",
     "preferredServer": "",
     "preferredDownloadServer": "",
     "blackListed": []
