@@ -1,0 +1,112 @@
+{
+  "moduleInfo": {
+    "moduleName": "nhentai",
+    "moduleInitials": "NH",
+    "moduleDesc": "Module for browsing and reading doujinshi from nhentai.net",
+    "developer": "Cas",
+    "moduleID": "NHENTAI12345",
+    "moduleImage": "https://nhentai.net/favicon.ico",
+    "moduleVersion": 1.0,
+    "moduleLenguage": "ENG",
+    "moduleType": "Image",
+    "baseURL": "https://nhentai.net",
+    "moduleDeveloperSite": "",
+    "UpdateSite": "",
+    "preferedServer": "",
+    "preferedDownloadServer": "",
+    "blackListed": []
+  },
+  "global": {
+    "variables": [],
+    "cookies": [],
+    "headers": []
+  },
+  "mainPage": [
+    {
+      "request": {
+        "url": "https://nhentai.net/",
+        "method": "get",
+        "headers": []
+      },
+      "output": [
+        {
+          "cellDesing": "normal1",
+          "orientation": "vertical",
+          "defaultLayout": "wide",
+          "section": {"sectionName": "Latest Doujins", "separator": false},
+          "data": [
+            {
+              "image": {"url": "div.gallery div.thumb img | attr:data-src", "method": "get"},
+              "title": "div.gallery div.caption | text",
+              "description": "",
+              "link": {"url": "div.gallery a | attr:href", "method": "get"}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "search": [
+    {
+      "request": {
+        "url": "https://nhentai.net/search/?q={query}",
+        "method": "get",
+        "headers": []
+      },
+      "output": [
+        {
+          "cellDesing": "normal1",
+          "orientation": "vertical",
+          "defaultLayout": "wide",
+          "section": {"sectionName": "Search Results", "separator": false},
+          "data": [
+            {
+              "image": {"url": "div.gallery div.thumb img | attr:data-src", "method": "get"},
+              "title": "div.gallery div.caption | text",
+              "description": "",
+              "link": {"url": "div.gallery a | attr:href", "method": "get"}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "info": [
+    {
+      "request": {
+        "url": "https://nhentai.net{mangaId}",
+        "method": "get",
+        "headers": []
+      },
+      "output": {
+        "image": {"url": "div#cover img | attr:data-src", "method": "get"},
+        "title": "div#info h1 | text",
+        "description": "div#info h2 | text",
+        "genres": "div#info section#tags a.tag | text",
+        "chapters": [
+          {
+            "chapName": "Read Doujin",
+            "link": {"url": "{mangaId}", "method": "get"}
+          }
+        ]
+      }
+    }
+  ],
+  "chapters": [
+    {
+      "request": {
+        "url": "https://nhentai.net{chapterId}",
+        "method": "get",
+        "headers": []
+      },
+      "output": {
+        "images": [
+          {
+            "url": "div.container img | attr:data-src",
+            "method": "get"
+          }
+        ]
+      }
+    }
+  ]
+}
