@@ -7,10 +7,8 @@
     "moduleID": "NHENTAI12345",
     "moduleImage": "https://nhentai.net/favicon.ico",
     "moduleVersion": 1.0,
-    "changelog": "Initial release for nhentai.net",
     "moduleLenguage": "ENG",
     "moduleType": "Image",
-    "nsfw": true,
     "baseURL": "https://nhentai.net",
     "moduleDeveloperSite": "",
     "UpdateSite": "",
@@ -37,7 +35,7 @@
       "javascriptConfig": {
         "removeJavascript": true,
         "loadInWebView": false,
-        "javaScript": "function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data; }"
+        "javaScript": ""
       },
       "output": [
         {
@@ -45,13 +43,56 @@
           "orientation": "vertical",
           "defaultLayout": "wide",
           "paging": "leading",
-          "section": {"sectionName": "Latest Doujins", "separator": false},
+          "section": {
+            "sectionName": "Latest Doujins",
+            "separator": false
+          },
+          "layout": {
+            "insets": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "visibleCellsWidthS": 2,
+            "visibleCellsWidthM": 2,
+            "visibleCellsWidthL": 2,
+            "visibleCellsHeight": 2,
+            "heightForVisibleCells": 400,
+            "cellSize": {
+              "width": 300,
+              "height": 300
+            },
+            "ratio": {
+              "inRelation": "width",
+              "number1": 1,
+              "number2": 2
+            },
+            "constant": {
+              "width": 1,
+              "height": 2
+            },
+            "horizontalSpacing": 0,
+            "verticalSpacing": 0
+          },
           "data": [
             {
-              "image": {"url": "div.gallery div.thumb img | attr:data-src", "method": "get"},
+              "image": {
+                "url": "div.gallery div.thumb img | attr:data-src",
+                "method": "get"
+              },
               "title": "div.gallery div.caption | text",
               "description": "",
-              "link": {"url": "div.gallery a | attr:href", "method": "get"}
+              "field1": "",
+              "field2": "",
+              "field3": "",
+              "field4": "",
+              "openInWebView": false,
+              "isChapter": false,
+              "link": {
+                "url": "div.gallery a | attr:href",
+                "method": "get"
+              }
             }
           ]
         }
@@ -81,13 +122,56 @@
           "orientation": "vertical",
           "defaultLayout": "wide",
           "paging": "leading",
-          "section": {"sectionName": "Search Results", "separator": false},
+          "section": {
+            "sectionName": "Search Results",
+            "separator": false
+          },
+          "layout": {
+            "insets": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "visibleCellsWidthS": 2,
+            "visibleCellsWidthM": 2,
+            "visibleCellsWidthL": 2,
+            "visibleCellsHeight": 2,
+            "heightForVisibleCells": 400,
+            "cellSize": {
+              "width": 300,
+              "height": 300
+            },
+            "ratio": {
+              "inRelation": "width",
+              "number1": 1,
+              "number2": 2
+            },
+            "constant": {
+              "width": 1,
+              "height": 2
+            },
+            "horizontalSpacing": 0,
+            "verticalSpacing": 0
+          },
           "data": [
             {
-              "image": {"url": "div.gallery div.thumb img | attr:data-src", "method": "get"},
+              "image": {
+                "url": "div.gallery div.thumb img | attr:data-src",
+                "method": "get"
+              },
               "title": "div.gallery div.caption | text",
               "description": "",
-              "link": {"url": "div.gallery a | attr:href", "method": "get"}
+              "field1": "",
+              "field2": "",
+              "field3": "",
+              "field4": "",
+              "openInWebView": false,
+              "isChapter": false,
+              "link": {
+                "url": "div.gallery a | attr:href",
+                "method": "get"
+              }
             }
           ]
         }
@@ -111,7 +195,10 @@
         "javaScript": ""
       },
       "output": {
-        "image": {"url": "div#cover img | attr:data-src", "method": "get"},
+        "image": {
+          "url": "div#cover img | attr:data-src",
+          "method": "get"
+        },
         "title": "div#info h1 | text",
         "description": "div#info h2 | text",
         "genres": ["div#info section#tags a.tag | text"],
@@ -123,7 +210,10 @@
           {
             "chapName": "Read Doujin",
             "openInWebView": false,
-            "link": {"url": "{mangaId}", "method": "get"}
+            "link": {
+              "url": "{mangaId}",
+              "method": "get"
+            }
           }
         ]
       }
@@ -152,7 +242,9 @@
             "method": "get"
           }
         ],
-        "text": {"text": ""}
+        "text": {
+          "text": ""
+        }
       }
     }
   ],
