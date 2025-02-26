@@ -44,7 +44,7 @@
           "cellDesing": "normal1",
           "orientation": "vertical",
           "defaultLayout": "wide",
-          "paging": "none",
+          "paging": "leading",
           "section": {"sectionName": "Latest Doujins", "separator": false},
           "data": [
             {
@@ -80,7 +80,7 @@
           "cellDesing": "normal1",
           "orientation": "vertical",
           "defaultLayout": "wide",
-          "paging": "none",
+          "paging": "leading",
           "section": {"sectionName": "Search Results", "separator": false},
           "data": [
             {
