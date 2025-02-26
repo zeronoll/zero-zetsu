@@ -1,0 +1,46 @@
+{
+  "moduleInfo": {
+    "moduleName": "NHentai",
+    "moduleInitials": "NH",
+    "moduleDesc": "Module Ketsu pour NHentai",
+    "developer": "user123",
+    "moduleID": "9876543210",
+    "moduleImage": "https://upload.wikimedia.org/wikipedia/commons/6/60/NHentai_Logo.png",
+    "moduleVersion": 1.0,
+    "changelog": "Initial release for NHentai",
+    "moduleLenguage": "ENG",
+    "moduleType": "Image",
+    "nsfw": true,
+    "baseURL": "https://nhentai.net/",
+    "moduleDeveloperSite": "https://mprotmod.github.io/Modules-KETSU/index.html",
+    "UpdateSite": "https://raw.githubusercontent.com/user123/NHentaiModule/main/module.json",
+    "preferedServer": "",
+    "preferedDownloadServer": "",
+    "blackListed": []
+  },
+  "global": {
+    "variables": [],
+    "cookies": [],
+    "headers": []
+  },
+  "mainPage": [
+    {
+      "request": {
+        "url": "https://nhentai.net/",
+        "method": "get",
+        "headers": [],
+        "httpBody": null
+      },
+      "extra": {
+        "commands": [],
+        "extraInfo": []
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": "const DefaultLayouts = { wideFull : 'wideFull', triplets : 'triplets', none: '' }; const CellDesings = { normal1 : 'normal1', wide1 : 'wide1' }; const Paging = { leading : 'leading', centered : 'centered', none : '' }; const Orientation = { horizontal : 'horizontal', vertical : 'vertical' }; function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data; } function Section(sectionName, separator) { this.sectionName = sectionName; this.separator = separator; } function Data(image, title, description, field1, field2, field3, field4, isChapter, link) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); let output = []; let emptyKeyValue = []; var dataArray = []; var galleryList = document.querySelectorAll('.gallery'); for (var x = 0; x < galleryList.length; x++) { let item = galleryList[x]; let title = item.querySelector('.caption').innerText; var link = new ModuleRequest(item.querySelector('a').href, 'get', emptyKeyValue, null); var image = new ModuleRequest(item.querySelector('img').src, 'get', emptyKeyValue, null); var finalData = new Data(image, title, '', '', '', '', '', false, link); dataArray.push(finalData); } output.push(new Output(CellDesings.wide1, Orientation.vertical, DefaultLayouts.wideFull, Paging.leading, new Section('Latest Doujins', true), null, dataArray)); let MainPageObject = new MainPage(new ModuleRequest('https://nhentai.net/', 'get', emptyKeyValue, null), new Extra([], emptyKeyValue), new JavascriptConfig(true, false, ''), output); var finalJson = JSON.stringify(MainPageObject); savedData.innerHTML = finalJson;"
+      },
+      "output": []
+    }
+  ]
+}
